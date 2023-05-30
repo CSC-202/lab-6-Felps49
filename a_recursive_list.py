@@ -41,23 +41,73 @@ def isEmpty(data: List) -> bool:
 
 
 def addAtIndex(data: List, index: int, value: int) -> List:
-    raise NotImplementedError("List.addAtIndex() not defined")
+    if (data is None):
+        return Node(value)
+    if (index == 1):
+        newnode = Node(data)
+        newnode.next = data
+        data = newnode
+        return data 
+    else:
+        data.next = addAtIndex(data.next, index -1, value)
+    return data
+    # raise NotImplementedError("List.addAtIndex() not defined")
 
 
 def removeAtIndex(data: List, index: int) -> tuple[Node, List]:
-    raise NotImplementedError("List.removeAtIndex() not defined")
+    def helper(v: Node, index: int, i: int):
+        if i + 1 == index:
+            target: Node = v.next
+            v.next = target.next
+            return target
+        elif i > index:
+            raise IndexError('oops')
+        else:
+            return helper(v.next, index, i + 1)
+    if isEmpty(data):
+        return None
+    elif index < 0 or index >= len(data):
+        raise IndexError('oops')
+    else:
+        return helper(data.first, index, i = 0)
+    # raise NotImplementedError("List.removeAtIndex() not defined")
 
 
 def addToFront(data: List, value: int) -> List:
-    raise NotImplementedError("List.addToFront() not defined")
+    if (data == None):
+        return None
+    else:
+        data.next = addToFront(data.next, value)
+    return data
+    # raise NotImplementedError("List.addToFront() not defined")
 
 
 def addToBack(data: List, value: int) -> List:
-    raise NotImplementedError("List.addToBack() not defined")
+    if (data == None):
+        new = Node(value)
+        return new
+    if data.next == None:
+        new = Node(value)
+        addToBack(data.next, value)
+    return data
+    #raise NotImplementedError("List.addToBack() not defined")
 
 
 def getElementAtIndex(data: List, index: int) -> Node:
-    raise NotImplementedError("List.getElementAtIndex() not defined")
+    def helper(v: Node, index: int, i: int):
+        if i == index:
+            return v
+        elif i > index:
+            raise IndexError('oops')
+        else:
+            return helper(v.next, index, i + 1)
+    if isEmpty(data):
+        return None
+    elif index < 0 or index >= len(data):
+        raise IndexError('oops')
+    else:
+        return helper(data.first, index, i = 0)
+    # raise NotImplementedError("List.getElementAtIndex() not defined")
 
 
 def clear(data: List) -> List:

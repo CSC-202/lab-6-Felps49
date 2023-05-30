@@ -45,11 +45,15 @@ def push(data: Stack, value: int) -> Stack:
 
 
 def pop(data: Stack) -> tuple[Node, Stack]:
-    raise NotImplementedError("Stack.pop() not defined")
+    if Stack.isEmpty():
+        return -1
+    pop(data)
+    # raise NotImplementedError("Stack.pop() not defined")
 
 
 def peek(data: Stack) -> Node:
-    raise NotImplementedError("Stack.peek() not defined")
+    
+     raise NotImplementedError("Stack.peek() not defined")
 
 
 def clear(data: Stack) -> Stack:
