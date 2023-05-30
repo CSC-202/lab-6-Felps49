@@ -314,14 +314,38 @@ for experiment in RESULTS:
 
 # YOUR CODE GOES BELOW
 ## LIST
-
+plt.xlabel('Lists')
+plt.ylabel('Relative Time')
+plt.yticks([])
+plt.xticks([])
+plt.bar(0, RESULTS['back'], width=1.0, label = 'back  (i)')
+plt.bar(0, RESULTS['back'], width=1.0, label = 'back  (r)')
+plt.bar(0, RESULTS['front'], width=0.8, label = 'front  (i)')
+plt.bar(0, RESULTS['front'], width=0.8, label = 'front  (r)')
+plt.legend()
 
 ## STACK
-
+plt.xlabel('Stacks')
+plt.ylabel('Relative Time')
+plt.yticks([])
+plt.xticks([])
+plt.bar(0, RESULTS['push'], width=1.0, label = 'push  (i)')
+plt.bar(0, RESULTS['push'], width=1.0, label = 'push  (r)')
+plt.bar(0, RESULTS['pop'], width=0.8, label = 'pop  (i)')
+plt.bar(0, RESULTS['pop'], width=0.8, label = 'pop  (r)')
+plt.legend()
 
 ## QUEUE
-
+plt.xlabel('Queues')
+plt.ylabel('Relative Time')
+plt.yticks([])
+plt.xticks([])
+plt.bar(0, RESULTS['enq'], width=1.0, label = 'enq   (i)')
+plt.bar(0, RESULTS['enq'], width=1.0, label = 'enq   (r)')
+plt.bar(0, RESULTS['deq'], width=0.8, label = 'deq   (i)')
+plt.bar(0, RESULTS['deq'], width=0.8, label = 'deq   (r)')
+plt.legend()
 
 ## SAVE FIGURE
-plt.savefig('./figs/stapleton_lab6_analysis.png')
+plt.savefig('./figs/Rotelli_lab6_analysis.png')
 plt.show()
