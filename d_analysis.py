@@ -314,38 +314,37 @@ for experiment in RESULTS:
 
 # YOUR CODE GOES BELOW
 ## LIST
+plt.subplot(1, 3, 1)
 plt.xlabel('Lists')
-plt.ylabel('Relative Time')
 plt.yticks([])
 plt.xticks([])
-plt.bar(0, RESULTS['back'], width=1.0, label = 'back  (i)')
-plt.bar(0, RESULTS['back'], width=1.0, label = 'back  (r)')
-plt.bar(0, RESULTS['front'], width=0.8, label = 'front  (i)')
-plt.bar(0, RESULTS['front'], width=0.8, label = 'front  (r)')
+plt.bar(0, RESULTS['back  (r)'], color = 'blue', label = 'back  (r)')
+plt.bar(0, RESULTS['back  (i)'], width=0.5, color = 'green', label = 'back  (i)')
+plt.bar(1, RESULTS['front (r)'], color = 'orange', label = 'front (r)')
+plt.bar(1, RESULTS['front (i)'], width=0.5, color = 'red', label = 'front (i)')
 plt.legend()
 
 ## STACK
+plt.subplot(1, 3, 2)
 plt.xlabel('Stacks')
-plt.ylabel('Relative Time')
 plt.yticks([])
 plt.xticks([])
-plt.bar(0, RESULTS['push'], width=1.0, label = 'push  (i)')
-plt.bar(0, RESULTS['push'], width=1.0, label = 'push  (r)')
-plt.bar(0, RESULTS['pop'], width=0.8, label = 'pop  (i)')
-plt.bar(0, RESULTS['pop'], width=0.8, label = 'pop  (r)')
+plt.bar(0, RESULTS['push  (r)'], color = 'blue', label = 'push  (r)')
+plt.bar(0, RESULTS['push  (i)'], width=0.5, color = 'green', label = 'push  (i)')
+plt.bar(1, RESULTS['pop   (r)'], color = 'orange', label = 'pop   (r)')
+plt.bar(1, RESULTS['pop   (i)'], width=0.5, color = 'red', label = 'pop   (i)')
 plt.legend()
 
 ## QUEUE
+plt.subplot(1, 3, 3)
 plt.xlabel('Queues')
-plt.ylabel('Relative Time')
 plt.yticks([])
 plt.xticks([])
-plt.bar(0, RESULTS['enq'], width=1.0, label = 'enq   (i)')
-plt.bar(0, RESULTS['enq'], width=1.0, label = 'enq   (r)')
-plt.bar(0, RESULTS['deq'], width=0.8, label = 'deq   (i)')
-plt.bar(0, RESULTS['deq'], width=0.8, label = 'deq   (r)')
+plt.bar(0, RESULTS['enq   (r)'], color = 'orange', label = 'enq   (r)')
+plt.bar(0, RESULTS['enq   (i)'], width=0.5, color = 'red', label = 'enq   (i)')
+plt.bar(1, RESULTS['deq   (r)'], color = 'blue', label = 'deq   (r)')
+plt.bar(1, RESULTS['deq   (i)'], width=0.5, color = 'green', label = 'deq   (i)')
 plt.legend()
 
 ## SAVE FIGURE
-plt.savefig('./figs/Rotelli_lab6_analysis.png')
 plt.show()

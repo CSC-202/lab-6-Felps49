@@ -33,31 +33,49 @@ class Queue:
 
 
 def initialize() -> Queue:
-    raise NotImplementedError("Queue.initialize() not defined")
+    return Queue()
+    # raise NotImplementedError("Queue.initialize() not defined")
 
 
 def isEmpty(data: Queue) -> bool:
-    raise NotImplementedError("Queue.isEmpty() not defined")
+    return data.first == None
+    # raise NotImplementedError("Queue.isEmpty() not defined")
 
 
 def enqueue(data: Queue, value: int) -> Queue:
-    if (data == None):
-        new = Node(value)
-        return new
-    if data.next == None:
-        new = Node(value)
-        enqueue(data.next, value)
-    return data
-# raise NotImplementedError("Queue.enqueue() not defined")
+    def helper(v: Node, value: int):
+        if v.next == None:
+            new_node = Node(value, None)
+            v.next = new_node
+            return data
+        else:
+            return helper(v.next, value)
+        
+    if data.first is None:
+        new_node = Node(value, None)
+        data.first = new_node
+        return data
+    else:
+        return helper(data.first, value)
+    # raise NotImplementedError("Queue.enqueue() not defined")
 
 
 def dequeue(data: Queue) -> tuple[Node, Queue]:
-    raise NotImplementedError("Queue.dequeue() not defined")
+    if isEmpty(data):
+        return None, None
+    else: 
+        target: Node = data.first
+        data.first = target.next
+        return target, data
+    # raise NotImplementedError("Queue.dequeue() not defined")
 
 
 def peek(data: Queue) -> Node:
-    raise NotImplementedError("Queue.peek() not defined")
+    return data.first.value
+    # raise NotImplementedError("Queue.peek() not defined")
 
 
 def clear(data: Queue) -> Queue:
-    raise NotImplementedError("Queue.clear() not defined")
+    data.first = None
+    return data
+    # raise NotImplementedError("Queue.clear() not defined")
